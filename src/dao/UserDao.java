@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -15,15 +16,24 @@ public class UserDao extends CommonDao {
 	}
 	
 	public void createUser(User user) throws SQLException {
-		//技记 凯扁
-		SqlSession sqlSession = getDB().openSession();
-		//技记 龋免
-		sqlSession.insert("createUser", user);
-		//commit
-		sqlSession.commit();
-		//技记 辆丰
-		sqlSession.close();
+		SqlSession sqlSession = getDB().openSession(); //技记 凯扁
+		sqlSession.insert("createUser", user); //技记 龋免
+		sqlSession.commit(); //commit
+		sqlSession.close(); //技记 辆丰
 		
 	}
-
+	
+	public int checkUser(String email, String password) {
+		int result;
+		
+		HashMap<String, String> user_info = new HashMap<>();
+		user_info.put("email", email);
+		user_info.put("password", password);
+		
+		SqlSession sqlSession = getDB().openSession();
+		result = sqlSession.selectOne("checkUser", user_info);
+		sqlSession.close();
+		
+		return result;
+	}
 }

@@ -8,6 +8,8 @@
 		<typeAlias alias="user" type="dto.User"/>
 		<typeAlias alias="str" type="java.lang.String"/>
 		<typeAlias alias="int" type="java.lang.Integer"/>
+		<typeAlias alias="bool" type="java.lang.Boolean"/>
+		<typeAlias alias="hmap" type="java.util.HashMap"/>
 	</typeAliases>
 	
 	<environments default="development">

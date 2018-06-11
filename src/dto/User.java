@@ -1,7 +1,7 @@
 package dto;
 
 public class User {
-	private String seq;
+	private int seq;
 	private String uname;
 	private String id;
 	private String email;
@@ -9,10 +9,10 @@ public class User {
 	private String createdate;
 	private String updatedate;
 	
-	public String getSeq() {
+	public int getSeq() {
 		return seq;
 	}
-	public void setSeq(String seq) {
+	public void setSeq(int seq) {
 		this.seq = seq;
 	}
 	public String getUname() {

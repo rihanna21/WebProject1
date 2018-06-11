@@ -24,7 +24,7 @@ public class JoinAction implements CommandAction {
 		
 		UserDao.getInstance().createUser(user);
 		
-		return null;
+		return "sign.jsp";
 	}
 
 }

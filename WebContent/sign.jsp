@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
@@ -14,36 +16,53 @@
    	<link href="css/sign.css" rel="stylesheet">
 
    	<title>Sign in Template for NewsScrapper</title>
+   	
+   	
 </head>
-<body class="text-center">
+<body>
 	<div class="container">
 		<div class="text-center">
        		<img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
    			<h1 class="h3 mb-3 font-weight-normal">sign in to Blog</h1>
    		</div>
    		<hr class="mb-3">
-		<form class="form-sign">
+		
+		<form action="login.do" class="form-sign" method="post">
    			<label for="inputEmail" class="sr-only">Email address</label>
-      		<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      		<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
       		<label for="inputPassword" class="sr-only">Password</label>
-      		<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      		<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
       		<div class="checkbox mb-3">
         		<label>
           			<input type="checkbox" value="remember-me"> Remember me
         		</label>
    			</div>
+   			
    			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      			
-   		</form>
-   		<hr class="mb-3">
-   		<p class="text-muted">
-   			계정이 없으신가요?
-   			<a href="join.jsp">가입하기</a>
-   		</p>
+   			<div class="text-center">
+   				<c:choose>
+   					<c:when test="${!empty msg}">
+   						<br>
+	   					<font color='red' size='3'>${msg}</font>
+   					</c:when>
+   					<c:otherwise>
+   						<font color='red' size='3'>${msg}</font>
+   					</c:otherwise>
+   				</c:choose>
+   			</div>
+      	</form>
+   		
+   		<div class="text-center">
+   			<hr class="mb-3">
+   			<p class="text-muted">
+   				계정이 없으신가요?
+   				<a href="join.jsp">가입하기</a>
+   			</p>
+   		</div>
    	</div>
    	
    	<footer class="my-5 pt-5 text-muted text-center text-small">
-       	<p class="mb-1">&copy; 2018 Rihanna21</p>
+       	<p class="mb-1">&copy; 2018 </p>
        	<ul class="list-inline">
    			<li class="list-inline-item"><a href="#">Home</a></li>
    			<li class="list-inline-item"><a href="#">Privacy</a></li>
