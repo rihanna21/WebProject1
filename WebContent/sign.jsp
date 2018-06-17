@@ -17,7 +17,6 @@
 
    	<title>Sign in Template for NewsScrapper</title>
    	
-   	
 </head>
 <body>
 	<div class="container">
