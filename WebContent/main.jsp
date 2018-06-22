@@ -1,9 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
+/*
 	if(session.getAttribute("signedUser") == null){
 			response.sendRedirect("logout.jsp");
 		}
+*/
 %>
 <!DOCTYPE html>
 <html>
@@ -23,37 +25,34 @@
 </head>
 <body>
 	<div class="container">
-		<header class="blog-header py-3 bg-dark">
+		<header class="blog-header py-3">
 	        <div class="row flex-nowrap justify-content-between align-items-center">
 	        	<div class="col-4 pt-1">
-	            	<a class="text-white" href="#">Subscribe</a>
+	            	<a class="text-muted" href="#">Subscribe</a>
 	          	</div>
 	          	<div class="col-4 text-center">
-	            	<a class="blog-header-logo text-white" href="#">Large</a>
+	            	<a class="blog-header-logo text-dark" href="main.jsp">Science Review</a>
 	          	</div>
 	          	<div class="col-4 d-flex justify-content-end align-items-center">
-	            	<a class="text-white" href="#">
+	            	<a class="text-muted" href="#">
 	              		<svg xmlns="http://www.w3.org/2000/svg" class="mx-3" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" height="20"><circle cx="10.5" cy="10.5" r="7.5" /><line x1="21" y1="21" x2="15.8" y2="15.8" /></svg>
 	            	</a>
-	            	<a class="btn btn-sm btn-outline-secondary text-white" href="logout.jsp">logout</a>
+	            	<a class="btn btn-sm btn-outline-secondary" href="logout.jsp">logout</a>
 	          	</div>
 	      	</div>
       	</header>
 
       <div class="nav-scroller py-1 mb-2">
       	<nav class="nav d-flex justify-content-between">
-        	<a class="p-2 text-muted" href="#">World</a>
-          	<a class="p-2 text-muted" href="#">U.S.</a>
-          	<a class="p-2 text-muted" href="#">Technology</a>
-          	<a class="p-2 text-muted" href="#">Design</a>
-          	<a class="p-2 text-muted" href="#">Culture</a>
-          	<a class="p-2 text-muted" href="#">Business</a>
-          	<a class="p-2 text-muted" href="#">Politics</a>
-          	<a class="p-2 text-muted" href="#">Opinion</a>
-          	<a class="p-2 text-muted" href="#">Science</a>
-          	<a class="p-2 text-muted" href="#">Health</a>
-          	<a class="p-2 text-muted" href="#">Style</a>
-          	<a class="p-2 text-muted" href="#">Travel</a>
+        	<a class="p-2 text-muted" href="#">기초과학</a>
+          	<a class="p-2 text-muted" href="#">응용과학</a>
+          	<a class="p-2 text-muted" href="#">보건·의학</a>
+          	<a class="p-2 text-muted" href="#">기후·해양</a>
+          	<a class="p-2 text-muted" href="#">항공·우주</a>
+          	<a class="p-2 text-muted" href="#">환경·에너지</a>
+          	<a class="p-2 text-muted" href="#">신소재·신기술</a>
+          	<a class="p-2 text-muted" href="#">IT</a>
+          	<a class="p-2 text-muted" href="#">View</a>
         </nav>
       </div>
 
@@ -100,72 +99,70 @@
     <main class="container" role="main">
     	<div class="row">
         	<div class="col-md-8 blog-main">
-          		<h3 class="pb-3 mb-4 font-italic border-bottom">From the Firehose</h3>
-
-          		<div class="blog-post">
-            		<h2 class="blog-post-title">Sample blog post</h2>
-            		<p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
-
-            		<p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
-            		<hr>
-            		<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-            		<blockquote>
-              			<p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            		</blockquote>
-            		<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-            		<h2>Heading</h2>
-            		<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-            		<h3>Sub-heading</h3>
-            		<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-            		<pre><code>Example code block</code></pre>
-            		<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-            		<h3>Sub-heading</h3>
-            		<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            		<ul>
-              			<li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-              			<li>Donec id elit non mi porta gravida at eget metus.</li>
-              			<li>Nulla vitae elit libero, a pharetra augue.</li>
-            		</ul>
-            		<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-            		<ol>
-              			<li>Vestibulum id ligula porta felis euismod semper.</li>
-              			<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-              			<li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
-            		</ol>
-            		<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
-          		</div><!-- /.blog-post -->
-
-          		<div class="blog-post">
-            		<h2 class="blog-post-title">Another blog post</h2>
-            		<p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
-
-		            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-		            <blockquote>
-		            	<p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-		            </blockquote>
-		            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-		            <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-		        </div><!-- /.blog-post -->
-		
-		        <div class="blog-post">
-		        	<h2 class="blog-post-title">New feature</h2>
-		            <p class="blog-post-meta">December 14, 2013 by <a href="#">Chris</a></p>
-
-            		<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            		<ul>
-		              <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-		              <li>Donec id elit non mi porta gravida at eget metus.</li>
-		              <li>Nulla vitae elit libero, a pharetra augue.</li>
-		            </ul>
-		            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-		            <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-          		</div><!-- /.blog-post -->
-
-          		<nav class="blog-pagination">
-            		<a class="btn btn-outline-primary" href="#">Older</a>
-            		<a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-          		</nav>
-
+          		<h3 class="pb-3 mb-4 font-italic border-bottom">Latest From</h3>
+        			<div class="post-preview">
+            			<a class="text-dark" href="post.jsp">
+              				<h4 class="post-title">
+                				Man must explore, and this is exploration at its greatest
+              				</h4>
+              				<p>
+                				Problems look mighty small from 150 miles up
+              				</p>
+            			</a>
+            			<p class="blog-post-meta">Posted by
+              				<a href="#">Start Bootstrap</a>
+              			on September 24, 2018</p>
+          			</div>
+          			<hr>
+          			<div class="post-preview">
+            			<a class="text-dark" href="post.html">
+              				<h4 class="post-title">
+                				I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
+              				</h4>
+              				<p>
+                				Problems look mighty small from 150 miles up
+              				</p>
+            			</a>
+            			<p class="blog-post-meta">Posted by
+              				<a href="#">Start Bootstrap</a>
+              				on September 18, 2018</p>
+          			</div>
+          			<hr>
+          			<div class="post-preview">
+            			<a class="text-dark" href="post.html">
+              				<h4 class="post-title">
+                				Science has not yet mastered prophecy
+              				</h4>
+              				<p>
+                				We predict too much for the next year and yet far too little for the next ten.
+              				</p>
+            			</a>
+            			<p class="blog-post-meta">Posted by
+              				<a href="#">Start Bootstrap</a>
+              				on August 24, 2018</p>
+          			</div>
+          			<hr>
+          			<div class="post-preview">
+            			<a class="text-dark" href="post.html">
+              				<h4 class="post-title">
+                				Failure is not an option
+              				</h4>
+              				<p>
+                				Many say exploration is part of our destiny, but it’s actually our duty to future generations.
+              				</p>
+            			</a>
+            			<p class="blog-post-meta">Posted by
+              				<a href="#">Start Bootstrap</a>
+              				on July 8, 2018</p>
+          			</div>
+          			        			   
+          			<hr>
+          			<!-- Pager -->
+          			<nav class="blog-pagination">
+	            		<a class="btn btn-outline-primary" href="#">Older</a>
+	            		<a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+	          		</nav>
+        		
         	</div> <!-- /.blog-main -->
 
         	<aside class="col-md-4 blog-sidebar">
@@ -206,8 +203,8 @@
     
     
     <footer class="blog-footer">
+    	<p><a href="#">Back to top</a></p>
     	<p class="mb-1">&copy; 2018 </p>
-      	<p><a href="#">Back to top</a></p>
       	<ul class="list-inline">
    			<li class="list-inline-item"><a href="#">Home</a></li>
    			<li class="list-inline-item"><a href="#">Privacy</a></li>
