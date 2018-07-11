@@ -15,14 +15,14 @@
    	<link href="css/common.css" rel="stylesheet">
    	<link href="css/sign.css" rel="stylesheet">
 
-   	<title>Sign in Template for NewsScrapper</title>
+   	<title>Science Review</title>
    	
 </head>
 <body>
 	<div class="container">
 		<div class="text-center">
        		<img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-   			<h1 class="h3 mb-3 font-weight-normal">sign in to Science Review</h1>
+   			<h1 class="h3 mb-3 font-weight-normal">sign in to Science Times</h1>
    		</div>
    		<hr class="mb-3">
 		

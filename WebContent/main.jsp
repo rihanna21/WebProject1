@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 /*
@@ -31,7 +33,7 @@
 	            	<a class="text-muted" href="#">Subscribe</a>
 	          	</div>
 	          	<div class="col-4 text-center">
-	            	<a class="blog-header-logo text-dark" href="main.jsp">Science Review</a>
+	            	<a class="blog-header-logo text-dark" href="main.jsp">Science Times</a>
 	          	</div>
 	          	<div class="col-4 d-flex justify-content-end align-items-center">
 	            	<a class="text-muted" href="#">
@@ -58,8 +60,8 @@
 
       <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
       	<div class="col-md-6 px-0">
-        	<h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
-          	<p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.</p>
+        	<h1 class="display-4 font-italic">${postArticle[0].title}</h1>
+          	<p class="lead my-3">${postArticle[0].sub_title}</p>
           	<p class="lead mb-0"><a class="text-white font-weight-bold" href="#">Continue reading...</a></p>
         </div>
       </div>
@@ -68,12 +70,15 @@
       		<div class="col-md-6">
         		<div class="card flex-md-row mb-4 box-shadow h-md-250">
             		<div class="card-body d-flex flex-column align-items-start">
-              			<strong class="d-inline-block mb-2 text-primary">World</strong>
+              			<strong class="d-inline-block mb-2 text-primary">${postArticle[1].c_code}</strong>
               			<h3 class="mb-0">
-                			<a class="text-dark" href="#">Featured post</a>
+                			<a class="text-dark" href="#">${postArticle[1].title}</a>
               			</h3>
-              			<div class="mb-1 text-muted">Nov 12</div>
-              			<p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+              			<div class="mb-1 text-muted">
+	              			<fmt:parseDate var="parsedDate" value="${postArticle[1].createdate}" pattern="yyyy-MM-dd" />
+	              			<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd" />
+              			</div>
+              			<p class="card-text mb-auto">${postArticle[1].sub_title}</p>
               			<a href="#">Continue reading</a>
             		</div>
             		<img class="card-img-right flex-auto d-none d-md-block" style="width: 200px; height: 250px;" alt="Thumbnail [200x250]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20250%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1640e2b20ef%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A13pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1640e2b20ef%22%3E%3Crect%20width%3D%22200%22%20height%3D%22250%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2256.19000244140625%22%20y%3D%22130.97899951934815%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-src="holder.js/200x250?theme=thumb" data-holder-rendered="true">
@@ -82,12 +87,15 @@
       		<div class="col-md-6">
       			<div class="card flex-md-row mb-4 box-shadow h-md-250">
         			<div class="card-body d-flex flex-column align-items-start">
-            			<strong class="d-inline-block mb-2 text-success">Design</strong>
+            			<strong class="d-inline-block mb-2 text-success">${postArticle[2].c_code}</strong>
               			<h3 class="mb-0">
-                			<a class="text-dark" href="#">Post title</a>
+                			<a class="text-dark" href="#">${postArticle[2].title}</a>
               			</h3>
-              			<div class="mb-1 text-muted">Nov 11</div>
-              			<p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+              			<div class="mb-1 text-muted">
+	              			<fmt:parseDate var="parsedDate" value="${postArticle[2].createdate}" pattern="yyyy-MM-dd" />
+	              			<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd" />
+              			</div>
+              			<p class="card-text mb-auto">${postArticle[2].sub_title}</p>
               			<a href="#">Continue reading</a>
             		</div>
             		<img class="card-img-right flex-auto d-none d-md-block" style="width: 200px; height: 250px;" alt="Thumbnail [200x250]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20250%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1640e2b20fb%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A13pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1640e2b20fb%22%3E%3Crect%20width%3D%22200%22%20height%3D%22250%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2256.19000244140625%22%20y%3D%22130.97899951934815%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-src="holder.js/200x250?theme=thumb" data-holder-rendered="true">
@@ -99,7 +107,7 @@
     <main class="container" role="main">
     	<div class="row">
         	<div class="col-md-8 blog-main">
-          		<h3 class="pb-3 mb-4 font-italic border-bottom">Latest From</h3>
+          		<h3 class="pb-3 mb-4 font-italic border-bottom">Post List</h3>
         			<div class="post-preview">
             			<a class="text-dark" href="post.jsp">
               				<h4 class="post-title">

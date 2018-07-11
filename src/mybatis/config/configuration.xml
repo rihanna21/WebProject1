@@ -6,6 +6,7 @@
 	
 	<typeAliases>
 		<typeAlias alias="user" type="dto.User"/>
+		<typeAlias alias="post" type="dto.Post"/>
 		<typeAlias alias="str" type="java.lang.String"/>
 		<typeAlias alias="int" type="java.lang.Integer"/>
 		<typeAlias alias="bool" type="java.lang.Boolean"/>

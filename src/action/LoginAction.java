@@ -22,7 +22,7 @@ public class LoginAction implements CommandAction {
 		if(user_cnt == 1) {
 			HttpSession session = request.getSession();
 			session.setAttribute("signedUser", email);
-			redirectUrl = "main.jsp";
+			redirectUrl = "main.do";
 		}
 		else
 		{
