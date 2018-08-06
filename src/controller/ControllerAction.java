@@ -14,13 +14,13 @@ public class ControllerAction extends HttpServlet {
 	}
 	
 	private void loadProperties(String path) { 
-        ResourceBundle rbHome = ResourceBundle.getBundle(path);// 누구를 실행할지를 rb에
+        ResourceBundle rbHome = ResourceBundle.getBundle(path); //properties 파일 로딩
         Enumeration<String> actionEnumHome = rbHome.getKeys();
  
         while (actionEnumHome.hasMoreElements())
         {
-        	String command = actionEnumHome.nextElement();
-            String className = rbHome.getString(command);
+        	String command = actionEnumHome.nextElement(); // ~.do command 저장
+            String className = rbHome.getString(command); // ~.do 파일에 해당하는 class명 저장
  
             try {
                 Class commandClass = Class.forName(className); // 해당 문자열을 클래스로  만든다
@@ -51,13 +51,19 @@ public class ControllerAction extends HttpServlet {
     	String view = null;
     	CommandAction com = null;
  
+    	// 요청 : http://localhost/web/test.jsp
+    	// request.getContextPath() : 프로젝트 경로 -> /web 경로를 얻는다.
+    	// request.getRequestURI()  : 프로젝트와 파일 경로 -> /web/test.jsp 경로를 얻는다.
+    	// request.getRequestURL()  : full 경로(http/s 프로토콜, 포트 정보 포함)
         try {
-            String command = request.getRequestURI();
+            String command = request.getRequestURI(); 
+            
+            // 요청 URI에서 프로젝트 경로를 제거하여 command 변수에 저장한다.
             if (command.indexOf(request.getContextPath()) == 0) {
                command = command.substring(request.getContextPath().length());
             }
  
-            com = (CommandAction) commandMap.get(command);
+            com = (CommandAction)commandMap.get(command);
  
             if (com == null) {
                 System.out.println("not found : " + command);
@@ -76,6 +82,10 @@ public class ControllerAction extends HttpServlet {
         if (view == null)
             return;
  
+        //dispatcher : 클라이언트가 요청하면서 전송한 데이터를 그대로 유지한다.
+        //             포워딩이 되더라도 주소가 변경되지 않는다.(같은 request 영역을 공유)
+        //redirect : 새로운 페이지로 이동해서 기존 데이터를 사용할 수 없다.
+        //           포워딩될 때 브라우저의 주소가 변경된다. 포워딩된 jsp페이지에서는 서블릿에서 request영역에 공유한 값에 접근할 수 없다.
         RequestDispatcher dispatcher = request.getRequestDispatcher(view);
         dispatcher.forward(request, response);
  

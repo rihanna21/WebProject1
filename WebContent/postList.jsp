@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 /*
 	if(session.getAttribute("signedUser") == null){
@@ -44,13 +46,13 @@
 
       <div class="nav-scroller py-1 mb-2">
       	<nav class="nav d-flex justify-content-between">
-        	<a class="p-2 text-muted" href="navPost.do?c_code=01">扁檬苞切</a>
-          	<a class="p-2 text-muted" href="navPost.do?c_code=02">览侩苞切</a>
-          	<a class="p-2 text-muted" href="navPost.do?c_code=03">焊扒·狼切</a>
-          	<a class="p-2 text-muted" href="navPost.do?c_code=04">扁饶·秦剧</a>
-          	<a class="p-2 text-muted" href="navPost.do?c_code=05">亲傍·快林</a>
-          	<a class="p-2 text-muted" href="navPost.do?c_code=06">券版·俊呈瘤</a>
-          	<a class="p-2 text-muted" href="navPost.do?c_code=07">脚家犁·脚扁贱</a>
+        	<a class="p-2 text-muted" href="navPost.do?c_code=01">旮办磮瓿柬暀</a>
+          	<a class="p-2 text-muted" href="navPost.do?c_code=02">鞚戩毄瓿柬暀</a>
+          	<a class="p-2 text-muted" href="navPost.do?c_code=03">氤搓贝路鞚橅暀</a>
+          	<a class="p-2 text-muted" href="navPost.do?c_code=04">旮绊泟路頃挫枒</a>
+          	<a class="p-2 text-muted" href="navPost.do?c_code=05">頃车路鞖办＜</a>
+          	<a class="p-2 text-muted" href="navPost.do?c_code=06">頇橁步路鞐愲剤歆�</a>
+          	<a class="p-2 text-muted" href="navPost.do?c_code=07">鞁犾唽鞛缝嫚旮办垹</a>
           	<a class="p-2 text-muted" href="navPost.do?c_code=08">IT</a>
           	<a class="p-2 text-muted" href="navPost.do?c_code=09">View</a>
         </nav>
@@ -60,17 +62,29 @@
     <main class="container" role="main">
     	<div class="row">
         	<div class="col-md-8 blog-main">
-        		<h3 class="pb-1 mb-4 font-italic border-top">${article.c_code}</h3>
-          		<div class="blog-post">
-          			<h2 class="blog-post-title">${article.title}</h2>
-            		<p class="blog-post-meta">${article.createdate} by <a href="#">${article.w_id}</a></p>
-            		<hr>
-            		<c:if test="${!empty article.resource}">
-            			<img src="${article.resource}" class="blog-img">
-            		</c:if>
-            		<br>
-            		${article.content}
-          		</div><!-- /.blog-post -->
+          		<h3 class="pb-3 mb-4 font-italic border-bottom">Post List</h3>
+        			<c:forEach items="${postList}" var="post">
+        				<div class="post-preview">
+        					<a class="text-dark" href='postRead.do?seq=${post.seq}'>
+	              				<h4 class="post-title">
+	                				${post.title}
+	              				</h4>
+	              				<p>
+	                				${post.sub_title}
+	              				</p>
+            				</a>
+            				<p class="blog-post-meta">Posted by
+              				<a href="#">${post.w_id}</a>
+              				on ${post.createdate}</p>
+          				</div>
+          				<hr>
+        			</c:forEach>
+          			
+          			<!-- Pager -->
+          			<nav class="blog-pagination">
+	            		<a class="btn btn-outline-primary" href="#">Newer</a>
+	          		</nav>
+        		
         	</div> <!-- /.blog-main -->
 
         	<aside class="col-md-4 blog-sidebar">

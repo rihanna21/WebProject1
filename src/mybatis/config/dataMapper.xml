@@ -13,6 +13,14 @@
 
 <!-- Post Data Mapper -->
 	<select id="getPostArticle" resultType="post">
-		SELECT a.seq, a.title, a.sub_title, c.code_name as c_code, a.createdate FROM tb_article a INNER JOIN tb_code c ON a.c_code = c.code ORDER BY a.count desc, a.createdate desc LIMIT 3;
+		SELECT a.seq as seq, a.title, a.sub_title, c.code_name as c_code, a.resource, a.createdate FROM tb_article a INNER JOIN tb_code c ON a.c_code = c.code ORDER BY a.count desc, a.createdate desc LIMIT 3;
+	</select>
+  	
+	<select id="getArticle" parameterType="int" resultType="post">
+		Select seq, title, sub_title, w_id, content, c_code, createdate, resource FROM tb_article WHERE seq = #{seq}
+	</select>
+	
+	<select id="getNavArticle" parameterType="str" resultType="post">
+		SELECT seq, title, sub_title, c_code, createdate FROM tb_article WHERE c_code = #{c_code}
 	</select>
 </mapper>
