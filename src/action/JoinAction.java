@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import controller.CommandAction;
 import dao.UserDao;
 import dto.User;
+import util.SecurityUtil;
 
 public class JoinAction implements CommandAction {
 
@@ -14,7 +15,10 @@ public class JoinAction implements CommandAction {
 		String uname = request.getParameter("lastName") + " " + request.getParameter("firstName");
 		String id = request.getParameter("id");
 		String email = request.getParameter("email");
-		String password = request.getParameter("password");
+		String password = SecurityUtil.encryptSHA(request.getParameter("password"));
+		
+		String msg;
+		int query_flag;
 		
 		User user = new User();
 		user.setUname(uname);
@@ -22,7 +26,12 @@ public class JoinAction implements CommandAction {
 		user.setEmail(email);
 		user.setPassword(password);
 		
-		UserDao.getInstance().createUser(user);
+		
+		query_flag = UserDao.getInstance().createUser(user);
+		if(query_flag == 1) {
+			msg = "가입이 완료되었습니다.";
+			request.setAttribute("msg", msg);			
+		}		
 		
 		return "sign.jsp";
 	}

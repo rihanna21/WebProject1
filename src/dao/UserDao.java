@@ -15,20 +15,19 @@ public class UserDao extends CommonDao {
 		return _instance;		
 	}
 	
-	public void createUser(User user) throws SQLException {
+	public int createUser(User user) throws SQLException {
+		int result;
+		
 		SqlSession sqlSession = getDB().openSession(); //技记 凯扁
-		sqlSession.insert("createUser", user); //技记 龋免
+		result = sqlSession.insert("createUser", user); //技记 龋免
 		sqlSession.commit(); //commit
 		sqlSession.close(); //技记 辆丰
 		
+		return result;
 	}
 	
-	public int checkUser(String email, String password) {
+	public int checkUser(HashMap<String, String> user_info) {
 		int result;
-		
-		HashMap<String, String> user_info = new HashMap<>();
-		user_info.put("email", email);
-		user_info.put("password", password);
 		
 		SqlSession sqlSession = getDB().openSession();
 		result = sqlSession.selectOne("checkUser", user_info);

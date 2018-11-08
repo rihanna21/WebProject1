@@ -1,10 +1,13 @@
 package action;
 
+import java.util.HashMap;
+
 import javax.servlet.http.*;
 
 import controller.CommandAction;
 import dao.UserDao;
 import dto.User;
+import util.SecurityUtil;
 
 public class LoginAction implements CommandAction {
 
@@ -12,12 +15,16 @@ public class LoginAction implements CommandAction {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		// TODO Auto-generated method stub
 		String email = request.getParameter("email");
-		String password = request.getParameter("password");
+		String password = SecurityUtil.encryptSHA(request.getParameter("password"));
+		
+		HashMap<String, String> user_info = new HashMap<>();
+		user_info.put("email", email);
+		user_info.put("password", password);
 		
 		String redirectUrl = "sign.jsp";
 		String msg;
 		
-		int user_cnt = UserDao.getInstance().checkUser(email, password);
+		int user_cnt = UserDao.getInstance().checkUser(user_info);
 		
 		if(user_cnt == 1) {
 			HttpSession session = request.getSession();
