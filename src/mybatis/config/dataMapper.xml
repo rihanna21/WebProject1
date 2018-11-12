@@ -4,12 +4,16 @@
 <mapper namespace="mybatis.config.dataMapper">
 <!-- User Data Mapper -->
 	<insert id="createUser" parameterType="user">
-		INSERT INTO tb_user (uname, id, email, password, createdate, updatedate) VALUES (#{uname}, #{id}, #{email}, #{password}, to_char(CURRENT_TIMESTAMP, 'YYYY-MM-DD HH24:MI:SS'), to_char(CURRENT_TIMESTAMP, 'YYYY-MM-DD HH24:MI:SS'))
+		INSERT INTO tb_user (uname, id, email, password, createdate, updatedate, subs_yn) VALUES (#{uname}, #{id}, #{email}, #{password}, to_char(CURRENT_TIMESTAMP, 'YYYY-MM-DD HH24:MI:SS'), to_char(CURRENT_TIMESTAMP, 'YYYY-MM-DD HH24:MI:SS'), null)
 	</insert>
 	
 	<select id="checkUser" parameterType="hmap" resultType="int">
 		SELECT count(seq) FROM tb_user WHERE email = #{email} and password = #{password}
 	</select>
+	
+	<update id="updateUser_subs" parameterType="str">
+		UPDATE tb_user SET subs_yn = 'Y', updatedate = to_char(CURRENT_TIMESTAMP, 'YYYY-MM-DD HH24:MI:SS') WHERE email = #{email}
+	</update>
 
 <!-- Post Data Mapper -->
 	<select id="getPostArticle" resultType="post">

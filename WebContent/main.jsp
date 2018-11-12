@@ -27,17 +27,17 @@
 	
 	<!-- JQuery 최신버전 -->
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script type="text/javascript" language="javascript">
+	<script type="text/javascript" language="javascript"></script>
 	
+	<!-- Custom javascript -->
 	
-	</script>	
 </head>
 <body>
 	<div class="container">
 		<header class="blog-header py-3">
 	        <div class="row flex-nowrap justify-content-between align-items-center">
 	        	<div class="col-4 pt-1">
-	            	<a class="text-muted" href="#">Subscribe</a>
+	            	<a class="text-muted" href="subscribe.jsp">Subscribe</a>
 	          	</div>
 	          	<div class="col-4 text-center">
 	            	<a class="blog-header-logo text-dark" href="main.do">Science Times</a>
