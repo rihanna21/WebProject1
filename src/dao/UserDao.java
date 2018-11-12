@@ -35,4 +35,11 @@ public class UserDao extends CommonDao {
 		
 		return result;
 	}
+	
+	public void updateUser(String email) {
+		SqlSession sqlSession = getDB().openSession();
+		sqlSession.update("updateUser_subs", email);
+		sqlSession.commit(); //commit
+		sqlSession.close();
+	}
 }

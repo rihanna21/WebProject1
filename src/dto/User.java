@@ -8,6 +8,7 @@ public class User {
 	private String password;
 	private String createdate;
 	private String updatedate;
+	private char subs_yn;
 	
 	public int getSeq() {
 		return seq;
@@ -50,6 +51,12 @@ public class User {
 	}
 	public void setUpdatedate(String updatedate) {
 		this.updatedate = updatedate;
+	}
+	public char getSubs_yn() {
+		return subs_yn;
+	}
+	public void setSubs_yn(char subs_yn) {
+		this.subs_yn = subs_yn;
 	}
 
 }

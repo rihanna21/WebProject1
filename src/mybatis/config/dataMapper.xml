@@ -10,6 +10,10 @@
 	<select id="checkUser" parameterType="hmap" resultType="int">
 		SELECT count(seq) FROM tb_user WHERE email = #{email} and password = #{password}
 	</select>
+	
+	<update id="updateUser_subs" parameterType="str">
+		UPDATE tb_user SET subs_yn = 'Y', updatedate = to_char(CURRENT_TIMESTAMP, 'YYYY-MM-DD HH24:MI:SS') WHERE email = #{email}
+	</update>
 
 <!-- Post Data Mapper -->
 	<select id="getPostArticle" resultType="post">

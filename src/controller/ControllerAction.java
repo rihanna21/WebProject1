@@ -13,6 +13,9 @@ public class ControllerAction extends HttpServlet {
 		loadProperties("controller/properties/Command");	
 	}
 	
+	/*
+	 * 사용자가 입력한 URL주소에 해당하는 controller class 객체 생성 
+	 */	
 	private void loadProperties(String path) { 
         ResourceBundle rbHome = ResourceBundle.getBundle(path); //properties 파일 로딩
         Enumeration<String> actionEnumHome = rbHome.getKeys();
