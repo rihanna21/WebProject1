@@ -114,61 +114,45 @@
     <main class="container" role="main">
 
         	<div class="blog-main">
-          		<h3 class="pb-3 mb-4 font-italic border-bottom">Post List</h3>
+          		<h3 class="pb-3 mb-4 font-italic border-bottom"></h3>
         			<div class="post-preview">
             			<a class="text-dark" href="post.jsp">
-              				<h4 class="post-title">
-                				Man must explore, and this is exploration at its greatest
-              				</h4>
-              				<p>
-                				Problems look mighty small from 150 miles up
-              				</p>
+              				<h4 class="post-title">${newerArticle[0].title}</h4>
+              				<p>${newerArticle[0].sub_title}</p>
             			</a>
             			<p class="blog-post-meta">Posted by
-              				<a href="#">Start Bootstrap</a>
-              			on September 24, 2018</p>
+              				<a href="#">${newerArticle[0].w_id}</a>
+              			on ${newerArticle[0].createdate}</p>
           			</div>
           			<hr>
           			<div class="post-preview">
             			<a class="text-dark" href="post.html">
-              				<h4 class="post-title">
-                				I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
-              				</h4>
-              				<p>
-                				Problems look mighty small from 150 miles up
-              				</p>
+              				<h4 class="post-title">${newerArticle[1].title}</h4>
+              				<p>${newerArticle[1].sub_title}</p>
             			</a>
             			<p class="blog-post-meta">Posted by
-              				<a href="#">Start Bootstrap</a>
-              				on September 18, 2018</p>
+              				<a href="#">${newerArticle[1].w_id}</a>
+              				on ${newerArticle[1].createdate}</p>
           			</div>
           			<hr>
           			<div class="post-preview">
             			<a class="text-dark" href="post.html">
-              				<h4 class="post-title">
-                				Science has not yet mastered prophecy
-              				</h4>
-              				<p>
-                				We predict too much for the next year and yet far too little for the next ten.
-              				</p>
+              				<h4 class="post-title">${newerArticle[2].title}</h4>
+              				<p>${newerArticle[2].sub_title}</p>
             			</a>
             			<p class="blog-post-meta">Posted by
-              				<a href="#">Start Bootstrap</a>
-              				on August 24, 2018</p>
+              				<a href="#">${newerArticle[2].w_id}</a>
+              				on ${newerArticle[2].createdate}</p>
           			</div>
           			<hr>
           			<div class="post-preview">
             			<a class="text-dark" href="post.html">
-              				<h4 class="post-title">
-                				Failure is not an option
-              				</h4>
-              				<p>
-                				Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-              				</p>
+              				<h4 class="post-title">${newerArticle[3].title}</h4>
+              				<p>${newerArticle[3].sub_title}</p>
             			</a>
             			<p class="blog-post-meta">Posted by
-              				<a href="#">Start Bootstrap</a>
-              				on July 8, 2018</p>
+              				<a href="#">${newerArticle[3].w_id}</a>
+              				on ${newerArticle[3].createdate}</p>
           			</div>
           			        			   
           			<hr>

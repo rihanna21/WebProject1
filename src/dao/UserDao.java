@@ -26,7 +26,7 @@ public class UserDao extends CommonDao {
 		return result;
 	}
 	
-	public int checkUser(HashMap<String, String> user_info) {
+	public int checkUser(HashMap<String, String> user_info) throws SQLException {
 		int result;
 		
 		SqlSession sqlSession = getDB().openSession();
@@ -36,7 +36,7 @@ public class UserDao extends CommonDao {
 		return result;
 	}
 	
-	public void updateUser(String email) {
+	public void updateUser(String email) throws SQLException {
 		SqlSession sqlSession = getDB().openSession();
 		sqlSession.update("updateUser_subs", email);
 		sqlSession.commit(); //commit

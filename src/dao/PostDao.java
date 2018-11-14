@@ -19,8 +19,15 @@ public class PostDao extends CommonDao{
 		List<Post> postArticle = sqlSession.selectList("getPostArticle");
 		sqlSession.close();
 		
-		return postArticle;
+		return postArticle;		
+	}
+	
+	public List<Post> getNewerArticle() throws SQLException{
+		SqlSession sqlSession = getDB().openSession(); //세션 열기
+		List<Post> newerArticle = sqlSession.selectList("getNewerArticle");
+		sqlSession.close();
 		
+		return newerArticle;		
 	}
 	
 	public Post getArticle(int seq) throws SQLException{
