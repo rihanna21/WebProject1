@@ -1,6 +1,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%
+	Cookie[] cookies = request.getCookies(); //request로부터 쿠키를 받아온다.
+	String email = "";  //email에 해당하는 쿠키값을 저장할 변수
+	
+	//쿠키에서 email에 해당하는 value값을 저장한다.
+	if(cookies != null){
+		for(Cookie cookie : cookies){
+			if(cookie.getName().equals("email"))
+				email = cookie.getValue();	
+		}					
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,12 +40,12 @@
 		
 		<form action="login.do" class="form-sign" method="post">
    			<label for="inputEmail" class="sr-only">Email address</label>
-      		<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      		<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" value="<%=email %>" required autofocus>
       		<label for="inputPassword" class="sr-only">Password</label>
       		<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
       		<div class="checkbox mb-3">
         		<label>
-          			<input type="checkbox" value="remember-me"> Remember me
+          			<input type="checkbox" name="e_save" <% if(email.length()>1) out.print("checked"); %>> Remember me
         		</label>
    			</div>
    			
