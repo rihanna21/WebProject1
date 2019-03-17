@@ -13,13 +13,13 @@ public class MainAction implements CommandAction{
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		// TODO Auto-generated method stub
-		
+
 		List<Post> postArticle = PostDao.getInstance().getPostArticle();
 		request.setAttribute("postArticle", postArticle);
 		
 		List<Post> newerArticle = PostDao.getInstance().getNewerArticle();
 		request.setAttribute("newerArticle", newerArticle);
-		
+	
 		return "main.jsp";
 	}
 

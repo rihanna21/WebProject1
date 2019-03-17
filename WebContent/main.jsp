@@ -26,10 +26,51 @@
 	<title>Insert title here</title>
 	
 	<!-- JQuery 최신버전 -->
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script type="text/javascript" language="javascript"></script>
-	
+	<script src="js/jquery-3.3.1.min.js"></script>
+		
 	<!-- Custom javascript -->
+	<script>
+	$(document).ready(function (){
+		$('#Newbtn').click(function(){
+			$.ajax({
+    			type : "post",
+    			url : "newerPost.ajax", // 데이터 처리할 controller
+    			contentType : "application/json; charset=utf-8",
+    			dataType : "json",
+    			//controller에서 처리하고 return된 데이터로 아래 처리
+    			success : function(data) {
+    				$("#con").html(""); //div id=con 태그를 공백으로 초기화	
+    				showNewerList(data); //데이터 출력
+    			},
+    			error : function(request, status, error) {
+    				alert("code=" + request.status + "\n" + "message=" + request.responseText + "\n" + "error=" + error);
+    			}
+   			});
+		});
+	});
+	
+	function showNewerList(data){
+		var result = data.newerList;  //controller로부터 받은 json 데이터
+		
+		$.each(result, function(index, item){
+			
+			var tag = "<div class='post-preview'>"
+	       		+ "<a class='text-dark' href='postRead.do?seq=" + item.seq + "'>"
+	       		+ "<h4 class='post-title'>" + item.title + "</h4>"
+	       		+ "<p>" + item.sub_title + "</p></a>"
+	       		+ "<p class='blog-post-meta'>Posted by "
+	       		+ "<a href='#'>" + item.w_id + "</a>"
+	       		+ " on " + item.createdate + "</p>";
+	       	
+	       	if(index < (result.length -1))
+	       		tag += "<hr>";
+	       		
+			$("#con").append(tag);
+			
+		});		
+	}
+
+	</script>
 	
 </head>
 <body>
@@ -113,10 +154,11 @@
     
     <main class="container" role="main">
 
-        	<div class="blog-main">
+        	<div class="blog-main" id="newer-list">
           		<h3 class="pb-3 mb-4 font-italic border-bottom"></h3>
+        			<div id="con">
         			<div class="post-preview">
-            			<a class="text-dark" href="post.jsp">
+            			<a class="text-dark" href='postRead.do?seq=${newerArticle[0].seq}'>
               				<h4 class="post-title">${newerArticle[0].title}</h4>
               				<p>${newerArticle[0].sub_title}</p>
             			</a>
@@ -126,7 +168,7 @@
           			</div>
           			<hr>
           			<div class="post-preview">
-            			<a class="text-dark" href="post.html">
+            			<a class="text-dark" href='postRead.do?seq=${newerArticle[1].seq}'>
               				<h4 class="post-title">${newerArticle[1].title}</h4>
               				<p>${newerArticle[1].sub_title}</p>
             			</a>
@@ -136,7 +178,7 @@
           			</div>
           			<hr>
           			<div class="post-preview">
-            			<a class="text-dark" href="post.html">
+            			<a class="text-dark" href='postRead.do?seq=${newerArticle[2].seq}'>
               				<h4 class="post-title">${newerArticle[2].title}</h4>
               				<p>${newerArticle[2].sub_title}</p>
             			</a>
@@ -146,7 +188,7 @@
           			</div>
           			<hr>
           			<div class="post-preview">
-            			<a class="text-dark" href="post.html">
+            			<a class="text-dark" href='postRead.do?seq=${newerArticle[3].seq}'>
               				<h4 class="post-title">${newerArticle[3].title}</h4>
               				<p>${newerArticle[3].sub_title}</p>
             			</a>
@@ -154,13 +196,13 @@
               				<a href="#">${newerArticle[3].w_id}</a>
               				on ${newerArticle[3].createdate}</p>
           			</div>
+          			</div> <!-- con /div -->     			
           			        			   
           			<hr>
           			<!-- Pager -->
           			<nav class="blog-pagination">
-	            		<a class="btn btn-outline-primary" href="#">Newer</a>
-	          		</nav>
-        		
+	            		<a class="btn btn-outline-primary" id="Newbtn" href="javascript:void(0)">Newer</a>
+	          		</nav>        		
         	</div> <!-- /.blog-main -->
 
     </main>
@@ -180,7 +222,7 @@
     
     <!-- Bootstrap core JavaScript ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"></script>  -->
     <script>window.jQuery || document.write('<script src="bootstrap/assets/jquery-slim.min.js"><\/script>')</script>
     <script src="bootstrap/assets/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
